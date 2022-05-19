@@ -4,7 +4,9 @@ import Head from 'next/head'
 import PokemonInfromation from '../../components/PokemonInfromation'
 
 export async function getStaticPaths(){
-    const pokemon = await fetch(`${process.env.NEXT_PUBLIC_API_END_POINT}index.json`).then(data => data.json());
+    let pokemon = await fetch(`${process.env.NEXT_PUBLIC_API_END_POINT}index.json`).then(data => data.json());
+    pokemon = pokemon.slice(0, 100);
+
     return {
       paths : pokemon.map(path => {
         return {params : {id:path.id.toString()}}
