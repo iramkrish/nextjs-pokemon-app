@@ -37,7 +37,7 @@ export default function Pokemondata({pokemon}){
   return (
     <div>
       <Head>
-        <title>Pokemon Information</title>
+        <title>Pokemon Information - {pokemon.name}</title>
       </Head>
       { pokemon && <PokemonInfromation pokemondata={pokemon}  /> }
     </div>
