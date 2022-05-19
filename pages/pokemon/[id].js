@@ -9,7 +9,7 @@ export async function getStaticPaths(){
       paths : pokemon.map(path => {
         return {params : {id:path.id.toString()}}
       }),
-      fallback : false,
+      fallback : true,
     }
   }
 
