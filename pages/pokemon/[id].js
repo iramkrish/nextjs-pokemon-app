@@ -21,6 +21,12 @@ export async function getStaticProps({params}){
 }
 
 export default function Pokemondata({pokemon}){
+
+    const router = useRouter()
+
+    if (router.isFallback) {
+      return <div>Loading...</div>
+    }
     // const router = useRouter()
 
     // const [pokemon , setPokemon] = useState(null)
@@ -34,13 +40,13 @@ export default function Pokemondata({pokemon}){
     //     getPokemon()
     // },[router.query.id])
 
-  return (
-    <div>
-      <Head>
-        <title>Pokemon Information - {pokemon.name}</title>
-      </Head>
-      { pokemon && <PokemonInfromation pokemondata={pokemon}  /> }
-    </div>
-  )
+    return (
+      <div>
+        <Head>
+          <title>Pokemon Information - {pokemon.name}</title>
+        </Head>
+        { pokemon && <PokemonInfromation pokemondata={pokemon}  /> }
+      </div>
+    )
 
 }
