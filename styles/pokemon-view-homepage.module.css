@@ -1,0 +1,32 @@
+.image{
+    width: 200px;
+    height: 200px;
+    aspect-ratio: 1/1;
+    padding-block-start: 20px;
+}
+
+.gridcontainer{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+}
+
+.girdCenter{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+a.girdCenter:hover{
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    box-sizing: content-box;
+}
+
+.textcenter{
+    text-align: center;
+}
+
+.paddinglr5{
+    padding-inline: 5px;
+}
