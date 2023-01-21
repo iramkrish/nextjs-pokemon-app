@@ -11,14 +11,15 @@ export async function getStaticPaths(){
       paths : pokemon.map(path => {
         return {params : {id:path.id.toString()}}
       }),
-      fallback : true,
+      fallback : 'blocking',
     }
   }
 
 export async function getStaticProps({params}){
     const pokemon = await fetch(`${process.env.NEXT_PUBLIC_API_END_POINT}pokemon/${params.id}.json`).then(data => data.json());
     return {
-      props: {pokemon}
+      props: {pokemon},
+      revalidate:1000
     }
 }
 
@@ -27,7 +28,7 @@ export default function Pokemondata({pokemon}){
     const router = useRouter()
 
     if (router.isFallback) {
-      return <div>Loading...</div>
+      return <div>Loading data here...</div>
     }
     // const router = useRouter()
 
