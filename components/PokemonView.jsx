@@ -1,5 +1,6 @@
 import styles from '../styles/pokemon-view-homepage.module.css';
 import React from 'react';
+import Image from 'next/image'
 const PokemonView = React.forwardRef(({ onClick, href, pokemon }, ref) => {
     const img = `${process.env.NEXT_PUBLIC_API_END_POINT}${pokemon.image}`
 
@@ -7,7 +8,7 @@ const PokemonView = React.forwardRef(({ onClick, href, pokemon }, ref) => {
         <a className={styles.girdCenter} href={href} onClick={onClick} ref={ref} >
             <h1 className={styles.textcenter}>{pokemon.id}</h1>
             <div>
-                <img className={styles.image} src={img} />
+                <Image className={styles.image} src={img} alt={img} layout="responsive" width="200" height="200"></Image>
             </div>
             <h1 className={styles.textcenter}>{pokemon.name}</h1>
         </a>
