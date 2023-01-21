@@ -19,7 +19,7 @@ export async function getStaticProps({params}){
     const pokemon = await fetch(`${process.env.NEXT_PUBLIC_API_END_POINT}pokemon/${params.id}.json`).then(data => data.json());
     return {
       props: {pokemon},
-      revalidate:1000
+      revalidate:60
     }
 }
 
